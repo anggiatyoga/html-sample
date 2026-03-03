@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komedi Putar - Bianglala Mini Lucu</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+      }
+
+      .scene {
+        position: relative;
+        width: 400px;
+        height: 400px;
+      }
+
+      .roda {
+        width: 300px;
+        height: 300px;
+        border: 15px solid #ffcc00;
+        border-radius: 50%;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        animation: putar 20s linear infinite;
+        box-shadow: 0 0 30px rgba(255, 204, 0, 0.7);
+      }
+
+      .gerbong {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        background: linear-gradient(#ff6b6b, #ff4757);
+        border-radius: 10px 10px 30px 30px;
+        text-align: center;
+        line-height: 80px;
+        font-size: 40px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .gerbong:nth-child(1) {
+        background: linear-gradient(#1e90ff, #4169e1);
+        top: -40px;
+        left: 120px;
+      }
+      .gerbong:nth-child(2) {
+        background: linear-gradient(#32cd32, #228b22);
+        top: 60px;
+        left: 240px;
+        transform: rotate(60deg);
+      }
+      .gerbong:nth-child(3) {
+        background: linear-gradient(#ffcc00, #ffa500);
+        top: 180px;
+        left: 240px;
+        transform: rotate(120deg);
+      }
+      .gerbong:nth-child(4) {
+        background: linear-gradient(#9932cc, #800080);
+        top: 280px;
+        left: 120px;
+        transform: rotate(180deg);
+      }
+      .gerbong:nth-child(5) {
+        background: linear-gradient(#ff69b4, #c71585);
+        top: 180px;
+        left: 0px;
+        transform: rotate(240deg);
+      }
+      .gerbong:nth-child(6) {
+        background: linear-gradient(#00ced1, #008b8b);
+        top: 60px;
+        left: 0px;
+        transform: rotate(300deg);
+      }
+
+      .emoji {
+        font-size: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: goyang 3s infinite alternate;
+      }
+
+      .lampu {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        animation: kedip 2s infinite alternate;
+      }
+
+      .lampu:nth-child(1) {
+        background: #ff0000;
+        top: 10px;
+        left: 140px;
+        animation-delay: 0s;
+      }
+      .lampu:nth-child(2) {
+        background: #00ff00;
+        top: 80px;
+        left: 260px;
+        animation-delay: 0.3s;
+      }
+      .lampu:nth-child(3) {
+        background: #ffff00;
+        top: 200px;
+        left: 260px;
+        animation-delay: 0.6s;
+      }
+      .lampu:nth-child(4) {
+        background: #0000ff;
+        top: 290px;
+        left: 140px;
+        animation-delay: 0.9s;
+      }
+
+      @keyframes putar {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes goyang {
+        from {
+          transform: translate(-50%, -50%) rotate(-5deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(5deg);
+        }
+      }
+
+      @keyframes kedip {
+        from {
+          opacity: 0.3;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      h1 {
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 0 10px #ffcc00;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="roda">
+        <div class="gerbong">😄</div>
+        <div class="gerbong">😂</div>
+        <div class="gerbong">🤩</div>
+        <div class="gerbong">😆</div>
+        <div class="gerbong">🎉</div>
+        <div class="gerbong">🚀</div>
+      </div>
+      <div class="lampu"></div>
+      <div class="lampu"></div>
+      <div class="lampu"></div>
+      <div class="lampu"></div>
+      <div class="emoji">🤡</div>
+    </div>
+
+    <h1>Welcome 🎡✨</h1>
+  </body>
+</html>
