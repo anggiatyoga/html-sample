@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">Travel Itinerary</h1>
+            <p class="text-gray-600">Plan and organize your trips</p>
+        </header>
+
+        <div class="mb-6">
+            <button onclick="showAddForm()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg shadow">
+                + Add New Trip
+            </button>
+        </div>
+
+        <div id="addForm" class="hidden bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-semibold mb-4">New Itinerary</h2>
+            <input type="text" id="destination" placeholder="Destination" class="w-full mb-3 px-4 py-2 border rounded-lg">
+            <input type="date" id="date" class="w-full mb-3 px-4 py-2 border rounded-lg">
+            <textarea id="notes" placeholder="Notes" class="w-full mb-3 px-4 py-2 border rounded-lg h-24"></textarea>
+            <div class="flex gap-2">
+                <button onclick="addItinerary()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Save</button>
+                <button onclick="hideAddForm()" class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg">Cancel</button>
+            </div>
+        </div>
+
+        <div id="itineraryList" class="space-y-4"></div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
