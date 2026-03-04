@@ -1,3 +1,4 @@
+const os = require('os');
 const express = require('express');
 const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
@@ -64,6 +65,7 @@ app.use('/api/itineraries', createItineraryRoutes(container.itineraryController)
  */
 
 app.listen(PORT, () => {
+  const ip = Object.values(os.networkInterfaces()).flat().find(i => i.family === 'IPv4' && !i.internal)?.address || 'localhost';
   console.log(`Server running on port ${PORT}`);
-  console.log(`Swagger docs available at http://localhost:${PORT}/api-docs`);
+  console.log(`Swagger docs available at http://${ip}:${PORT}/api-docs`);
 });
