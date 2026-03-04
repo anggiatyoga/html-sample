@@ -1,11 +1,10 @@
 {
   "name": "todo-backend-app",
   "version": "1.0.0",
-  "main": "server-clean.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server-clean.js",
-    "dev": "nodemon server-clean.js",
-    "start:old": "node server.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

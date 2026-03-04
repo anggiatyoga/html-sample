@@ -15,6 +15,8 @@ app.use(express.json());
 app.use(logger);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
+app.get('/', (req, res) => res.json({ status: 'ok', message: 'Service is running' }));
+
 app.use('/api/itineraries', createItineraryRoutes(container.itineraryController));
 
 /**
