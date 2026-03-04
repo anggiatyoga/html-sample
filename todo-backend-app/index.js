@@ -1,24 +1,34 @@
-const os = require('os');
-const express = require('express');
-const cors = require('cors');
-const swaggerUi = require('swagger-ui-express');
-const swaggerSpec = require('./swagger');
-const createItineraryRoutes = require('./src/presentation/routes/itineraryRoutes');
-const container = require('./src/shared/DIContainer');
-const logger = require('./src/presentation/middleware/logger');
-require('dotenv').config();
+const os = require("os");
+const express = require("express");
+const cors = require("cors");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger");
+const createItineraryRoutes = require("./src/presentation/routes/itineraryRoutes");
+const container = require("./src/shared/DIContainer");
+const logger = require("./src/presentation/middleware/logger");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "http://43.134.14.173"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(logger);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get('/', (req, res) => res.json({ status: 'ok', message: 'Service is running' }));
+app.get("/", (req, res) =>
+  res.json({ status: "ok", message: "Service is running" })
+);
 
-app.use('/api/itineraries', createItineraryRoutes(container.itineraryController));
+app.use(
+  "/api/itineraries",
+  createItineraryRoutes(container.itineraryController)
+);
 
 /**
  * @swagger
@@ -65,7 +75,10 @@ app.use('/api/itineraries', createItineraryRoutes(container.itineraryController)
  */
 
 app.listen(PORT, () => {
-  const ip = Object.values(os.networkInterfaces()).flat().find(i => i.family === 'IPv4' && !i.internal)?.address || 'localhost';
+  const ip =
+    Object.values(os.networkInterfaces())
+      .flat()
+      .find((i) => i.family === "IPv4" && !i.internal)?.address || "localhost";
   console.log(`Server running on port ${PORT}`);
   console.log(`Swagger docs available at http://${ip}:${PORT}/api-docs`);
 });
