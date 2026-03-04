@@ -4,6 +4,13 @@ import { useState, useEffect } from "react";
 import { Loading } from "../components/Loading";
 import { API_CONFIG } from "../src/config/api";
 
+interface Itinerary {
+  id: string;
+  destination: string;
+  date: string;
+  notes: string;
+}
+
 const API_BASE = `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.ITINERARIES}`;
 
 export default function Home() {
@@ -11,7 +18,7 @@ export default function Home() {
   const [destination, setDestination] = useState("");
   const [date, setDate] = useState("");
   const [notes, setNotes] = useState("");
-  const [itineraries, setItineraries] = useState([]);
+  const [itineraries, setItineraries] = useState<Itinerary[]>([]);
   const [showAlert, setShowAlert] = useState(false);
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
